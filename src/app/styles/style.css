@@ -329,7 +329,7 @@ a{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center bottom;
-    padding: 12px 0px 36px;
+    padding: 12px 0px 12px;
 }
 .header-top-left > ul > li,
 .header-top-right > ul > li {
@@ -345,6 +345,13 @@ a{
     font-size: 16px;
     color: #fff;
 }
+
+.header-top-right > ul > span {
+    font-size: 16px;
+    color: #fff;
+    margin-right: 20px;
+}
+
 .header-top-left > ul > li > a > i,
 .header-top-right > ul > li > a > i {
     margin-right: 4px;
@@ -803,7 +810,7 @@ span.theme-logo {
     visibility: hidden;
 }
 .product-box:hover .product-content::before{
-    visibility: visible;
+    visibility: hidden;
     opacity: 1;
 }
 .product-box .product-content .product-btn {
@@ -1783,7 +1790,7 @@ span.theme-logo {
 /* preloader css */
 /* bradcrumb css */
 .bradcrumb-area {
-    padding: 80px 0px 100px;
+    padding: 50px 0px 70px;
 }
 .bradcrumb-box h1 {
     font-size: 40px;
