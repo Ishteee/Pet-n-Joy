@@ -380,7 +380,7 @@
         display: none;
     }
     .header-main-menu .bg-light .navbar-collapse .navbar-nav > .nav-item > .nav-link.dropdown-active~.nav-dropdown {
-        display: block;
+        /* display: block; */
     }
     .header-main-menu .bg-light .navbar-collapse{
         max-height: 360px;

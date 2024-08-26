@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import FurryFriend from "./components/FurryFriend";
 import FeaturedProducts from "./components/FeaturedProducts";
 import Blog from "./components/Blog";
-import './styles/responsive.css';
 
 export default function HomePage() {
   return (
