@@ -115,7 +115,7 @@ export default async function MainShop() {
                                        <div class="product-box text-center">
                                           <div class="product-images">
                                              <Link href={`/product/${product.id}`}>
-                                             <img src={product.imageUrl} alt={product.productName}/>
+                                             <img height={241} src={product.imageUrl} alt={product.productName}/>
                                              </Link>
                                              <div class="pro-whislist-ico">
                                                 <i class="far fa-heart"></i>

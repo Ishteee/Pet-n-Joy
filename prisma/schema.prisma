@@ -1,10 +1,10 @@
 generator client {
   provider = "prisma-client-js"
 }
- 
+
 datasource db {
   provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL")
+  url      = env("POSTGRES_PRISMA_URL")
   directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
@@ -38,7 +38,7 @@ model Account {
   @@unique([provider, providerAccountId])
   @@map("accounts")
 }
- 
+
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique @map("session_token")
@@ -48,7 +48,7 @@ model Session {
  
   @@map("sessions")
 }
- 
+
 model User {
   id            String    @id @default(cuid())
   username      String?   @unique
@@ -62,10 +62,11 @@ model User {
   accounts      Account[]
   sessions      Session[]
   carts         Cart[]     // Relation to Cart
- 
+  wallet        Wallet?    // One-to-one relation with Wallet
+  
   @@map("users")
 }
- 
+
 model VerificationToken {
   identifier String
   token      String
@@ -92,6 +93,15 @@ model CartItem {
   product   Product  @relation(fields: [productId], references: [id])
   productId String
   quantity  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Wallet {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String   @unique  // Ensures one-to-one relationship
+  balance   Float    @default(0.0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

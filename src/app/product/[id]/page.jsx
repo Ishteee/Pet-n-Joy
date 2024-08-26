@@ -1,8 +1,34 @@
 import getProductDetails from "@/app/api/getProductDetails";
+import { authOptions } from "@/lib/authOptions";
+import { getServerSession } from "next-auth";
+import AddToCartButton from "@/app/components/ui/AddToCartButton";
 
 export default async function ProductDetails({params}) {
    const {id} = params;
    const product = await getProductDetails(id);
+   const session = await getServerSession(authOptions);
+
+//   const addToCart = async (productId) => {
+//     try {
+//       const res = await fetch('/api/cart/add', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({
+//           userId: session?.user.id, // Replace with logic to get the logged-in user's ID
+//           productId: productId,
+//           quantity: 1, // You can modify this based on the selected quantity
+//         }),
+//       });
+
+//       const result = await res.json();
+//       console.log(result.message);
+//     } catch (error) {
+//       console.error('Error adding to cart:', error);
+//     } finally {
+//     }
+//   };
 
     return(
         <section class="shop-detail-box-area page-paddings">
@@ -65,7 +91,7 @@ export default async function ProductDetails({params}) {
                                  </button>
                               </div>
                               <div class="shop-cart-btn">
-                                 <a href="pet-shop/demo1/cart.html" class="theme-btn">Add To Cart</a>
+                                 <AddToCartButton productId={product.id} userId={session?.user.id}></AddToCartButton>
                               </div>
                            </div>
                            <div class="shop-buy-btn">
