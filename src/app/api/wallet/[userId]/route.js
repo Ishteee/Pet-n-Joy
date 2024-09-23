@@ -29,6 +29,9 @@ export async function GET(request, { params }) {
       data: {
         userId: userId,
         balance: 0.0, // Set initial balance
+        cashbackAmount: 0.0,
+        cashbackExpiry: null,
+        cashbackStatus: "inactive"
       },
     });
 

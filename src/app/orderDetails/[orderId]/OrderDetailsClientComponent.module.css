@@ -1,0 +1,81 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+
+.orderCard {
+  width: 70%;
+  background-color: rgba(240, 240, 240, 0.9); /* Transparent light grey background */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.details {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.sectionTitle {
+  color: #e65f78;
+  margin-top: 20px;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #e65f78;
+  padding-bottom: 10px;
+}
+
+.productDetails {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: rgba(230, 230, 230, 0.8); /* More opaque grey background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.productInfo {
+  flex: 2;
+  padding-right: 20px;
+}
+
+.productInfo p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.productImage img {
+  width: 200px; /* Slightly larger fixed width */
+  height: 200px; /* Slightly larger fixed height */
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #ddd; /* Border around the image */
+}
+
+.priceInfo {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.transactionInfo {
+  margin-bottom: 30px;
+}
+
+.transactionInfo p {
+  margin: 8px 0;
+  color: #444;
+}
+
+.orderDetailsCard {
+  background-color: rgba(255, 255, 255, 0.85); /* More prominent transparent card */
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

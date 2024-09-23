@@ -5,7 +5,7 @@ import React from 'react';
 const RemoveCartItemButton = ({ cartItemId }) => {
   const handleRemove = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/cart/remove/${cartItemId}`, {
+      const res = await fetch(`https://pet-shop-rust.vercel.app/api/cart/remove/${cartItemId}`, {
         method: 'DELETE',
       });
 

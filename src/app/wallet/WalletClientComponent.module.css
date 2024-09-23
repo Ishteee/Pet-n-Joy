@@ -1,0 +1,146 @@
+/* Styles for WalletClientComponent.module.css */
+
+.container {
+    padding: 20px;
+    background-color: #f8f8f8;
+    color: #333;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  .header {
+    color: #e65f78;
+    margin-bottom: 20px;
+    font-size: 2rem;
+  }
+  
+  .walletDetails {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    text-align: left;
+  }
+  
+  .detail {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    text-align: left;
+  }
+  
+  .value {
+    font-weight: bold;
+    color: #e65f78;
+  }
+  
+  .noWallet {
+    font-size: 1.2rem;
+    color: #e65f78;
+  }
+  
+  .addMoney {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    background-color: #e65f78;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .addMoney:hover {
+    background-color: #d45469;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  
+  .input {
+    padding: 10px;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  
+  .confirmButton:hover {
+    background-color: #d45469; /* Darker color on hover */
+  }
+  
+  .inputContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .rupeeSymbol {
+    font-size: 1.5rem;
+    color: #333;
+    margin-right: 8px; /* Spacing between the symbol and input */
+  }
+  
+  .input {
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; /* Full width for input */
+    box-sizing: border-box; /* Ensures padding is included in width */
+  }
+
+  .confirmButton {
+    font-size: 1.2rem;
+    margin-left: 10px; /* Spacing between the input and button */
+    background-color: #e65f78;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .confirmButton:disabled {
+    background-color: #ccc; /* Grey background for disabled state */
+    cursor: not-allowed; /* Change cursor to indicate disabled state */
+  }
+
+  .loadingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Blur effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Above everything */
+}
+
+/* Loading spinner */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1); /* Light gray border */
+    border-left-color: #e85c7c; /* Spinner color */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 100px auto; /* Center spinner */
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+  
+  

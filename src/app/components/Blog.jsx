@@ -1,3 +1,5 @@
+'use client';
+
 export default function Blog() {
     return(
         <section class="blog-area page-paddings">

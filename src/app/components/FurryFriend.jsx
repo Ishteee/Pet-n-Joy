@@ -1,3 +1,5 @@
+'use client';
+
 export default function FurryFriend() {
     return(
         <section class="furry-friend-area page-paddings">

@@ -4,8 +4,9 @@ export async function GET(request, { params }) {
   const { userId } = params;
 
   try {
-    const cart = await prisma.cart.findFirst({
-      where: { userId: userId, status: 'ACTIVE' },
+    // Try to find the cart with status "DIRECT"
+    let cart = await prisma.cart.findFirst({
+      where: { userId: userId, status: 'DIRECT' },
       include: {
         cartItems: {
           include: {
@@ -15,6 +16,23 @@ export async function GET(request, { params }) {
       },
     });
 
+    if(!cart) {
+      // If no cart with status "DIRECT" is found, search for the one with status "ACTIVE"
+      cart = await prisma.cart.findFirst({
+        where: { userId: userId, status: 'ACTIVE' },
+        include: {
+          cartItems: {
+            include: {
+              product: true,
+            },
+          },
+        },
+      });
+    }
+
+    
+
+    // If no cart is found, return an empty cartItems array
     if (!cart) {
       return new Response(
         JSON.stringify({ cartItems: [] }),
@@ -22,6 +40,7 @@ export async function GET(request, { params }) {
       );
     }
 
+    // Return the found cart's items
     return new Response(
       JSON.stringify({ cartItems: cart.cartItems }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }

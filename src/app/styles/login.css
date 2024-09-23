@@ -29,6 +29,7 @@ display: flex;
 .login-logo{
 margin-bottom: 20px;
 text-align: center;
+margin-left: 130px;
 }
 .login-logo img {
   max-width: 150px;

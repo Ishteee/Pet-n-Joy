@@ -8,6 +8,9 @@ export default function ProductForm() {
   const router = useRouter();
   const [productName, setProductName] = useState('');
   const [productType, setProductType] = useState('');
+  const [brand, setBrand] = useState('');
+  const [category, setCategory] = useState('');
+  const [stock, setStock] = useState('');
   const [originalPrice, setOriginalPrice] = useState('');
   const [discountedPrice, setDiscountedPrice] = useState('');
   const [imageUrl, setImageUrl] = useState('');
@@ -44,7 +47,7 @@ export default function ProductForm() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ productName, productType, originalPrice, discountedPrice, imageUrl})
+        body: JSON.stringify({ productName, productType, originalPrice, discountedPrice, imageUrl, brand, category, stock})
       })
       router.refresh();
     } catch (error) {
@@ -56,6 +59,9 @@ export default function ProductForm() {
     setProductName('');
     setOriginalPrice('');
     setDiscountedPrice('');
+    setBrand('');
+    setCategory('');
+    setStock('');
     setImageUrl('');
     setBlob(null);
 
@@ -82,6 +88,24 @@ export default function ProductForm() {
         />
       </div>
       <div>
+        <label>Brand</label>
+        <input
+          type="text"
+          value={brand}
+          onChange={(e) => setBrand(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label>Category</label>
+        <input
+          type="text"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          required
+        />
+      </div>
+      <div>
         <label>Original Price</label>
         <input
           type="number"
@@ -96,6 +120,15 @@ export default function ProductForm() {
           type="number"
           value={discountedPrice}
           onChange={(e) => setDiscountedPrice(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label>Stock</label>
+        <input
+          type="number"
+          value={stock}
+          onChange={(e) => setStock(e.target.value)}
           required
         />
       </div>

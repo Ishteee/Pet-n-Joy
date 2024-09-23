@@ -3,6 +3,7 @@
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import styles from "@/app/account/ProfileClientComponent.module.css";
 
 
 const LogoutButton = () => {
@@ -14,7 +15,7 @@ const LogoutButton = () => {
         //     router.refresh();
         // }}><i className="fas fa-sign-in-alt"></i> Logout
         // </Link>
-        <button onClick={() => signOut({
+        <button className={styles.signOutButton} onClick={() => signOut({
             redirect: true,
             callbackUrl: `${window.location.origin}/`,
         })

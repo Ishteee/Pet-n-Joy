@@ -8,15 +8,23 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import FurryFriend from "./components/FurryFriend";
 import FeaturedProducts from "./components/FeaturedProducts";
 import Blog from "./components/Blog";
+import { useState } from "react";
+import LoadingSpinner from "./components/ui/LoadingSpinner";
+import styles from './HomePage.module.css';
 
 export default function HomePage() {
+  const [loading, setLoading] = useState(false);
   return (
     <div>
       <MyCarousel/>
-      <Services/>
+      <Services setLoading={setLoading}/>
       <FurryFriend/>
-      <FeaturedProducts/>
       <Blog/>
+      {loading && (
+          <div className={styles.loadingOverlay}>
+            <LoadingSpinner />
+          </div>
+        )}
     </div>
   );
 }

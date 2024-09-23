@@ -1,11 +1,8 @@
 "use client";
 
-const AddToCartButton = ({productId, userId}) => {
+const AddToCartButton = ({productId, userId, quantity, buyNow}) => {
 
     const addToCart = async () => {
-        console.log("HELLO");
-        console.log("Product ID:", productId);
-        console.log("User ID:", userId);
         try {
           const res = await fetch('/api/cart/add', {
             method: 'POST',
@@ -15,7 +12,8 @@ const AddToCartButton = ({productId, userId}) => {
             body: JSON.stringify({
               userId: userId, // Replace with logic to get the logged-in user's ID
               productId: productId,
-              quantity: 1, // You can modify this based on the selected quantity
+              quantity: quantity, // You can modify this based on the selected quantity
+              buyNow: buyNow,
             }),
           });
     

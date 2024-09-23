@@ -98,3 +98,14 @@ body {
   border-radius: 3px;
   text-align: center;
 }
+
+.charts-container {
+  display: flex;
+  justify-content: space-between; /* Adjust spacing between the charts */
+  align-items: flex-start; /* Align items to the top */
+  gap: 20px; /* Add a gap between the charts */
+}
+
+.charts-container > div {
+  width: 45%; /* Each chart will take up 45% of the container's width */
+}

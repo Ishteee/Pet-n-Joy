@@ -57,6 +57,25 @@
 body{
 	font-family: 'Roboto', sans-serif !important;
 }
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1); /* Light gray border */
+    border-left-color: #e85c7c; /* Spinner color */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 100px auto; /* Center spinner */
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  
+
 ul,
 li{
 	padding: 0px;
@@ -377,10 +396,10 @@ a{
     margin: 5px 0px;
 }
 span.theme-logo {
-    height: 40px;
-    width: 160px;
+    height: 50px;
+    width: 200px;
     display: inline-block;
-    background-image: url(/images/pink-logo.png);
+    background-image: url(/images/pink-logo3.jpg);
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -460,38 +479,57 @@ span.theme-logo {
 .header-main-menu .bg-light .navbar-collapse .navbar-nav > .nav-item > .nav-link > i {
     margin-left: 2px;
 }
-.header-right-btn > ul > li {
+.header-right-btn {
+    position: relative; /* Ensures the dropdown is positioned relative to this container */
+  }
+  
+  .header-right-btn > ul {
+    list-style: none; /* Remove default list styles */
+    padding: 0;
+    margin: 0;
+  }
+  
+  .header-right-btn > ul > li {
     float: left;
-    position: relative;
-}
-.header-right-btn > ul > li .search-dropdown {
-    position: absolute;
-    top: -20px;
-    margin-top: 14px;
-    width: 0px;
-    opacity: 0;
-    visibility: hidden;
-    right: 0px;
-    transition: all 0.5s;
-}
-.header-right-btn > ul > li .search-dropdown.search-active {
-    width: 350px;
-    opacity: 1;
-    visibility: visible;
-}
-.header-right-btn > ul > li .search-dropdown > li > .header-search-box > .form-control {
-    border: 0px;
-    padding: 15px 15px;
-    box-shadow: 0px 0px 15px #eee;
-}
-.header-right-btn > ul > li > a {
+    position: relative; /* Position relative to manage dropdown positioning */
+  }
+  
+  .header-right-btn > ul > li > a {
     display: block;
     font-size: 24px;
     padding: 5px 12px;
     color: #212529;
+    text-decoration: none; /* Ensure there’s no underline */
     position: relative;
-    z-index: 1;
-}
+    z-index: 1; /* Ensure the button is on top of other elements */
+  }
+  
+  .header-right-btn > ul > li .search-dropdown {
+    position: absolute;
+    top: 100%; /* Position the dropdown directly below the button */
+    right: 0; /* Align with the right edge of the container */
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+    background: white; /* Ensure the background is visible */
+    transition: all 0.5s ease; /* Smooth transition for opening and closing */
+    z-index: 10; /* Ensure the dropdown appears above other elements */
+  }
+  
+  .header-right-btn > ul > li .search-dropdown.search-active {
+    width: 350px;
+    opacity: 1;
+    visibility: visible;
+    margin-top: 14px; /* Adjust spacing if needed */
+  }
+  
+  .header-right-btn > ul > li .search-dropdown > li > .header-search-box > .form-control {
+    border: 0;
+    padding: 15px;
+    box-shadow: 0px 0px 15px #eee;
+  }
+  
+
 .header-right-btn > ul > li > a > .budge {
     height: 20px;
     width: 20px;
@@ -754,7 +792,7 @@ span.theme-logo {
     color: #030303;
     text-align: center;
 }
-.product-box .pro-whislist-ico {
+.pro-whislist-ico {
     font-size: 16px;
     color: #e85c7c;
     position: absolute;
@@ -1357,10 +1395,12 @@ span.theme-logo {
 }
 .comment-list li {
     position: relative;
-    float: left;
     margin-top: 20px;
     padding: 20px 0 0 75px;
     border-top: 1px solid #eeeeee;
+    display: block; /* Ensures the reviews stack vertically */
+    width: 100%; /* Make sure it takes the full width */
+    clear: both; /* Prevents any floating issues */
 }
 .comment-list li .comment {
     margin-bottom: 15px;
@@ -1855,33 +1895,33 @@ span.theme-logo {
     margin-left: 20px;
 }
 .product-sidebar-size .sidebar-widget-box ul > li {
-    list-style: circle;
+    list-style: none;
     transition: all 0.5s;
 }
 .sidebar-widget-box > .sidebar-category > li:last-child,
 .product-sidebar-size .sidebar-widget-box ul > li:last-child {
     margin-bottom: 0px;
 }
-.sidebar-widget-box > .sidebar-category > li > a,
-.product-sidebar-size .sidebar-widget-box ul > li > a {
+.sidebar-widget-box > .sidebar-category > li > label,
+.product-sidebar-size .sidebar-widget-box ul > li > label {
     font-size: 16px;
     color: #1a1f2b;
     transition: all 0.5s;
 }
-.sidebar-widget-box > .sidebar-category > li > a:hover,
-.sidebar-widget-box > .sidebar-category > li > a.active,
-.product-sidebar-size .sidebar-widget-box ul > li > a:hover,
+.sidebar-widget-box > .sidebar-category > li > label:hover,
+.sidebar-widget-box > .sidebar-category > li > label.active,
+.product-sidebar-size .sidebar-widget-box ul > li > label:hover,
 .product-sidebar-size .sidebar-widget-box ul > li:hover{
     color: #e85c7c;
 }
-.sidebar-widget-box > .sidebar-category > li > a > span {
+.sidebar-widget-box > .sidebar-category > li > label > span {
     font-weight: 600;
     float: right;
 }
 .product-sidebar-tag .sidebar-widget-box > ul > li {
     display: inline-block;
 }
-.product-sidebar-tag .sidebar-widget-box > ul > li > a {
+.product-sidebar-tag .sidebar-widget-box > ul > li > label {
     background-color: #f1f1f1;
     display: block;
     margin-right: 5px;
@@ -1901,11 +1941,12 @@ span.theme-logo {
 }
 /* shop sidebar css */
 .collection-shorting {
-    padding: 0px 15px 10px;
+    padding: 0px 15px 5px;
     background: #fff;
     border-radius: 8px 8px;
     border: 1px solid #eee;
     box-shadow: 0px 0px 15px #eee;
+    padding-top: 10px;
 }
 .collection-shorting .short-tab {
     float: left;
@@ -1915,7 +1956,6 @@ span.theme-logo {
     float: right;
 }
 .short-tab .nav-tabs {
-    padding-top: 10px;
     border: 0px;
 }
 .short-tab .nav-tabs .nav-item {
@@ -1941,12 +1981,14 @@ span.theme-logo {
     float: left;
     margin-right: 15px;
     padding-top: 10px;
+    margin-bottom: 0px;
+    padding-top: 5px;
 }
 .product-filter > ul > li:last-child {
     margin-right: 0px;
 }
 .product-filter > ul > li > label {
-    font-size: 14px;
+    font-size: 16px;
     margin-right: 4px;
     margin-bottom: 0px;
     text-transform: uppercase;
@@ -2134,9 +2176,10 @@ span.theme-logo {
 /* shop detail page css */
 .shop-pro-main{
     display: flex;
+    float: center;
 }
 .shop-pro-main .shop-pro-thumbnail {
-    float: left;
+    float: center;
 }
 .shop-pro-thumbnail > ul > li {
     display: table;
@@ -2153,8 +2196,8 @@ span.theme-logo {
     max-height: 90px;
 }
 .shop-pro-main .shop-pro-images {
-    float: left;
-    padding-left: 15px;
+    float: center;
+    padding-left: 80px;
     margin-bottom: 30px;
 }
 .shop-detail-content .detail-info .product-title {
@@ -2511,6 +2554,30 @@ span.theme-logo {
     padding-bottom: 0px;
     border: 0px;
 }
+
+.checout-area .checkout-title .theme-title {
+    background-color: #f3f3f3;
+    padding: 15px 20px;
+    margin: 0px;
+}
+
+.checout-area .checkout-fom-box {
+    padding: 0px 20px 20px;
+    border: 1px solid #eee;
+}
+
+.page-paddings {
+    padding: 40px 0px;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+}
+
+.col-xl-8 {
+    max-width: 600px; /* Optional: Adjust the width of the form if needed */
+    width: 100%;
+}
+
 /* checout css */
 /* search css */
 .search-page-area .search-page-box {
@@ -3054,17 +3121,16 @@ span.theme-logo {
     z-index: 9999; /* Ensure it sits above other content */
 }
 
-.spinner {
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid #3498db;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
+.no-cart {
+    display: flex;
+    justify-content: center; /* Centers items horizontally */
+    align-items: center; /* Centers items vertically */
+    text-align: center;
+    color: #ffffff;
+    background-color: #e66f8a;
+    height: 10rem;
+    margin: auto;
+    width: 30%;
+    font-size: 20px;
+    margin-top: 20px;
 }
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
