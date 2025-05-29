@@ -3,6 +3,7 @@ import { authOptions } from "@/lib/authOptions";
 import { getServerSession } from "next-auth";
 import AddToCartButton from "@/app/components/ui/AddToCartButton";
 import ProductClientComponent from "./ProductClientComponent";
+import prisma from "@/lib/prisma";
 
 export default async function ProductDetails({ params }) {
     const { id } = params;
